@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<link rel="stylesheet" href="/css/style.css" type="text/css"/>
+	<title>K19 Treinamentos</title>
+</h:head>
+<h:body>
+	<h1>Registrar cotações do dólar</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Valor: " for="valor" />
+			<h:panelGroup>
+				<h:inputText label="Valor" value="#{cotacaoBean.cotacao.valor}" id="valor" required="true">
+					<f:convertNumber locale="pt_BR" type="currency"/>
+				</h:inputText>
+				<h:message for="valor" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:outputLabel value="Variação: " for="variacao" />
+			<h:panelGroup>
+				<h:inputText label="Variação" value="#{cotacaoBean.cotacao.variacao}" id="variacao" required="true">
+					<f:convertNumber  maxFractionDigits="5" type="percent"/>
+				</h:inputText>
+				<h:message for="variacao" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:outputLabel value="Horário: " for="horario" />
+			<h:panelGroup>
+				<h:inputText label="Horário" value="#{cotacaoBean.cotacao.horario}" id="horario" required="true">
+					<f:convertDateTime pattern="HH:mm dd/MM/yyyy"/>
+				</h:inputText>
+				<h:message for="horario" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:commandButton value="Registar" />
+		</h:panelGrid>
+	</h:form>
+	<br />
+	<h:link value="Voltar" outcome="index"/>
+</h:body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>K19 - Treinamentos</title>
+	</h:head>
+   	<h:body>
+   		<h1>Serviço de Atendimento ao Consumidor </h1>
+   		<h:form>
+   			<h:panelGrid columns="2">
+   			
+   				<h:outputLabel value="Nome: " for="nome"/>
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="nome"
+   						label="Nome"
+   						required="true"
+   						value="#{contatoBean.nome}">
+   						<f:validateLength minimum="3" maximum="15"/>
+   					</h:inputText>
+   					<h:message for="nome"/>
+   				</h:panelGroup>   				
+   				
+   				<h:outputLabel value="E-mail: " for="email"/>
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="email"
+   						label="E-mail"
+   						required="true"
+   						value="#{contatoBean.email}">
+   						<f:validateRegex pattern="[\w\d]@[\w].[\w]"/>
+   					</h:inputText>
+   					<h:message for="email"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Telefone: " for="telefone"/>
+   				<h:panelGroup>
+   					(<h:inputText
+   						required="true" 
+   						value="#{contatoBean.codigoDeArea}"
+   						size="2" />)
+   					<h:inputText 
+   						size="9"
+   						id="telefone"
+   						required="true"
+   						label="Telefone"
+   						value="#{contatoBean.numeroDoTelefone}">   						
+   					</h:inputText>
+   					(DDD) XXXX-XXXX
+   					<h:message for="telefone"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Sexo: " for="sexo"/>
+   				<h:panelGroup>
+   					<h:selectOneRadio 
+   						id="sexo" 
+   						label="Sexo" 
+   						required="true" 
+   						value="#{contatoBean.sexo}">
+   						<f:selectItem itemLabel="Masculino" itemValue="true"/>
+   						<f:selectItem itemLabel="Feminino" itemValue="false"/>
+   					</h:selectOneRadio>
+   					<h:message for="sexo"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Número Pedido: " for="numero"/>
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="numero"
+   						label="Número Pedido"
+   						required="true"
+   						value="#{contatoBean.numeroPedido}">   						
+   					</h:inputText>
+   					<h:message for="numero"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Assunto: " for="assunto"/>
+   				<h:panelGroup>
+	   				<h:selectOneMenu id="assunto" value="#{contatoBean.assunto}">
+	   					<f:selectItem 
+	   						itemLabel="Escolha um Assunto" 
+	   						noSelectionOption="true"/>
+	   					<f:selectItems 
+	   						value="#{contatoBean.assuntos.keySet()}"
+	   						var="assuntos"
+	   						itemValue="#{assuntos}"
+	   						itemLabel="#{assuntos}"/>
+	   				</h:selectOneMenu>
+   					<h:message for="assunto"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Comentário: " for="comentario"/>
+   				<h:panelGroup>
+   					<h:inputTextarea    
+   						rows="5"					
+   						cols="10"
+   						id="comentario"
+   						label="Comentário"
+   						value="#{contatoBean.comentario}"/>
+   					<h:message for="comentario"/>
+   				</h:panelGroup>
+   				
+   				<h:commandButton value="Enviar"/>
+   			</h:panelGrid>
+   		</h:form>
+   	</h:body>   
+</html>

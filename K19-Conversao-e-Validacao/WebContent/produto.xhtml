@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>K19 Treinamentos</title>
+</h:head>
+<h:body>
+	<h1>Cadastro de Produtos.</h1>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Código: " for="codigo" />
+			<h:panelGroup>				
+				<h:inputText label="Código" value="#{produtoBean.produto.codigo}" id="codigo">
+					<f:validateRequired/>
+					<f:validateLength minimum="4" maximum="10"/>
+				</h:inputText>
+				<h:message for="codigo" style="color: red"/>
+			</h:panelGroup>
+			
+			
+			<h:outputLabel value="Nome: " for="nome" />
+			<h:panelGroup>				
+				<h:inputText label="Nome" value="#{produtoBean.produto.nome}" id="nome" required="true">
+					<f:validateLength minimum="4"/>
+				</h:inputText>
+				<h:message for="nome" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:outputLabel value="Tamanho: " for="tamanho" />
+			<h:panelGroup>				
+				<h:inputText label="Tamanho" value="#{produtoBean.produto.tamanho}" id="tamanho">
+					<f:validateRequired/>				
+					<f:validateLongRange minimum="1" maximum="32"/>
+				</h:inputText>
+				<h:message for="tamanho" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:outputLabel value="Volume: " for="volume" />
+			<h:panelGroup>				
+				<h:inputText label="Volume" value="#{produtoBean.produto.volume}" id="volume">
+					<f:validateRequired/>				
+					<f:validateDoubleRange minimum="0.1"/>
+				</h:inputText>
+				<h:message for="volume" style="color: red"/>
+			</h:panelGroup>
+			
+			<h:commandButton value="Enviar"/>
+		
+		</h:panelGrid>
+	</h:form>
+	<h:link value="Voltar" outcome="index"/>
+</h:body>
+</html>

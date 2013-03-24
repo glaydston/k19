@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<fieldset>
+	<legend>Novo Jogador</legend>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="Nome: " for="jogador-nome" />
+		<h:inputText id="jogador-nome" required="true"
+			value="#{jogadorBean.jogador.nome}">
+			<f:validateLength minimum="6" />
+		</h:inputText>
+		<h:message for="jogador-nome" styleClass="mensagem-erro" />
+		<h:outputLabel value="Posição: " for="jogador-posicao" />
+		<h:inputText id="jogador-posicao" required="true"
+			value="#{jogadorBean.jogador.posicao}">
+		</h:inputText>
+		<h:message for="jogador-posicao" styleClass="mensagem-erro" />
+		<h:outputLabel value="Data de Nascimento: " for="jogador-nascimento" />
+		<h:inputText id="jogador-nascimento" required="true"
+			value="#{jogadorBean.jogador.nascimento.time}">
+			<f:convertDateTime pattern="dd/MM/yyyy" />
+		</h:inputText>
+		<h:message for="jogador-nascimento" styleClass="mensagem-erro" />
+		<h:outputLabel value="Altura (m): " for="jogador-altura" />
+		<h:inputText id="jogador-altura" required="true"
+			value="#{jogadorBean.jogador.altura}">
+		</h:inputText>
+		<h:message for="jogador-altura" styleClass="mensagem-erro" />
+		<h:outputLabel value="Seleção: " for="jogador-selecao" />
+		<h:selectOneMenu id="jogador-selecao" value="#{jogadorBean.selecaoID}">
+			<f:selectItems value="#{selecaoBean.selecoes}" var="selecao"
+				itemLabel="#{selecao.pais}" itemValue="#{selecao.id}" />
+		</h:selectOneMenu>
+		<h:message for="jogador-selecao" styleClass="mensagem-erro" />
+		<h:commandButton value="Cadastrar" styleClass="botao-formulario">
+			<f:ajax event="click" execute="@form"
+				listener="#{jogadorBean.adiciona}" render="@form" />
+		</h:commandButton>
+	</h:panelGrid>
+</fieldset>
+</html>

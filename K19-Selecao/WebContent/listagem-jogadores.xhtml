@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h3 class="titulo">Listagem de Jogadores</h3>
+<h:dataTable id="tabela" value="#{jogadorBean.jogadores}" var="jogador"
+	styleClass="tabela">
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Id" />
+		</f:facet>
+	#{jogador.id}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Nome" />
+		</f:facet>
+	#{jogador.nome}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Posição" />
+		</f:facet>
+	#{jogador.posicao}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Nascimento" />
+		</f:facet>
+		<h:outputText value="#{jogador.posicao}">
+			<f:convertDateTime pattern="dd/MM/yyyy" />
+		</h:outputText>
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Altura" />
+		</f:facet>
+	#{jogador.altura}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Seleção" />
+		</f:facet>
+	#{jogador.selecao.pais}
+	</h:column>
+	<h:column>
+		<f:facet name="header">
+			<h:outputText value="Remover" />
+		</f:facet>
+		<f:ajax event="click" render="@form"
+			listener="#{jogadorBean.remove}>
+			<h:commandLink>Remover</h:commandLink>
+		</f:ajax>
+	</h:column>
+</h:dataTable>
+</html>

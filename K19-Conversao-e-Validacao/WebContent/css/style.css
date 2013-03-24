@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+		/* #region    8.6 ---->Caixas de Alerta */
+
+/*
+.CaixaMensagem____________________________________________
+| .cabecalho___________________________________________  | 
+| |        |                                           | |                 
+| | .icone |                <span>                     | |                 
+| |________|___________________________________________| |                 
+|________________________________________________________|
+*/
+
+.CaixaMensagem
+{
+	border:solid 1px;
+	margin:0 0 8px 0;
+}
+
+    .CaixaMensagem .cabecalho
+	{
+		padding:5px 0;
+		font-size:1em;
+		line-height:15px;
+		text-align:left;
+	}
+		    
+	.CaixaMensagem .content
+	{
+		border-top:1px solid;
+		font-size:1em;
+		background-color:#fff;
+		    
+	}
+		
+		.CaixaMensagem .cabecalho span
+		{
+			font-weight:bold;
+		}
+
+		.CaixaMensagem .cabecalho .icone  
+		{
+			height:16px;
+			width:25px;
+			background:url('../images/spriteIcons.png') no-repeat;
+			display:block;
+			float:left;
+		}
+	
+	
+	.ItemAtencao,
+	.ItemAtencao .content {border-color:#cbc693;}    
+	.ItemAtencao .cabecalho {background:#fcf8e7;border-color:#cbc693;color:#876301 ;}
+	.ItemAtencao .cabecalho span {color:#876301;}
+	.ItemAtencao .cabecalho .icone {background-position:-1519px -2px !important}
+	
+	.ItemInformativo,
+	.ItemInformativo .content  {border-color:#7c9ff8;}    
+	.ItemInformativo .cabecalho {background:#d6eaf7;border-color:#7c9ff8;color:#014687;}
+	.ItemInformativo .cabecalho span {color:#014687;}
+	.ItemInformativo .cabecalho .icone {background-position:-1597px -2px !important}
+	
+	.ItemSucesso,
+	.ItemSucesso .content  {border-color:#a6d877;}    
+	.ItemSucesso .cabecalho {background:#f2fde3;border-color:#a6d877;color:#2d5b00;}
+	.ItemSucesso .cabecalho span {color:#2d5b00;}
+	.ItemSucesso .cabecalho .icone {background-position:-1544px -2px !important}
+	
+	.ItemCritico,
+	.ItemCritico .content  {border-color:#d87787;}    
+	.ItemCritico .cabecalho {background:#fdebeb;border-color:#d87787;color:#c52626;}
+	.ItemCritico .cabecalho span {color:#c52626;}
+	.ItemCritico .cabecalho .icone {background-position:-1572px -2px !important}
+
+
+/* #endregion */ 

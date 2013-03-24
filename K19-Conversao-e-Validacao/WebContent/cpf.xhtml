@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>K19 Treinamento</title>
+</h:head>
+<h:body>
+	<h1>Formulário</h1>
+	<h:form>
+		<h:outputLabel value="CPF: " for="cpf" />
+		<h:inputText value="#{cPFBean.cpf}" id="cpf" label="CPF" maxlength="15">
+			<f:ajax event="change" execute="cpf" render="mensagem"/>
+			<f:validator validatorId="ValidaCPF"/>
+		</h:inputText>
+		<h:commandButton value="Enviar"/>
+		<h:message for="cpf" style="color: red" id="mensagem"/>
+	</h:form>
+</h:body>
+</html>

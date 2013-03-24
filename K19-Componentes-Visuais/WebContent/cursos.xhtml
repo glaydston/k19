@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>K19 - Treinamentos</title>
+	</h:head>
+   	<h:body>
+   		<h:form>
+   			<h:panelGrid columns="2">   			
+   				<h:outputLabel value="Nome: "  for="nome"/>
+   				<h:panelGroup>   					
+   					<h:inputText 
+   						 id="nome"
+   						 label="Nome"
+   						 required="true"
+   						 value="#{cursosBean.curso.nome}" />
+   					<h:message for="nome"/>   				
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Sigla: "  for="sigla"/>
+   				<h:panelGroup>   					
+   					<h:inputText 
+   						 id="sigla"
+   						 label="sigla"
+   						 required="true"
+   						 value="#{cursosBean.curso.sigla}" />
+   					<h:message for="sigla"/>   				
+   				</h:panelGroup>
+   				
+   				<h:commandButton action="#{cursosBean.adicionaCurso}" value="Adicionar" />
+   				
+   			</h:panelGrid>
+   		</h:form>   	
+   		<h:dataTable  
+   			rendered="#{not empty cursosBean.cursos}"
+   			value="#{cursosBean.cursos}" 
+   			var="curso">
+   			<f:facet name="header">Lista de Cursos</f:facet>
+   			
+   			<h:column>
+   				<f:facet name="header">Sigla</f:facet>
+   				#{curso.sigla}
+   			</h:column>
+   			
+   			<h:column>
+   				<f:facet name="header">Nome</f:facet>
+   				#{curso.nome}
+   			</h:column>
+   		</h:dataTable>	
+   		
+   	</h:body>    
+</html>

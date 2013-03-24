@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>K19 - Treinamentos</title>
+	</h:head>
+   	<h:body>
+   		<h:form>
+   			<h:panelGrid columns="2">
+   				<h:outputLabel value="Nome: "  for="nome"/>
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="nome"
+   						label="Nome"
+   						required="true"
+   						value="#{userBean.nome}">
+   						<f:validateLength minimum="3" maximum="15"/>
+   					</h:inputText>
+   					<h:message for="nome" style="color:red;"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Idade: " for="idade"/>
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="idade"
+   						label="Idade"
+   						required="true"
+   						value="#{userBean.idade}">
+   						<f:validateLength minimum="1" maximum="3"/>
+   						<f:convertNumber />
+   					</h:inputText>
+   					<h:message for="idade" style="color:red;"/>
+   				</h:panelGroup>
+   				
+   				<h:commandButton value="Enviar"/>
+   				<h:commandButton value="Limpar" type="reset" />
+   			</h:panelGrid>
+   		</h:form>
+   		
+   		O nome do usuário é <b>#{userBean.nome}</b>
+   		e sua idade é <b>#{userBean.idade}</b>
+   	</h:body>   
+</html>

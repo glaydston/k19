@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<converter>
+		<converter-for-class>com.model.RIC</converter-for-class>
+		<converter-class>com.converters.ConversorDeRIC</converter-class>
+	</converter>
+	<converter>
+		<converter-for-class>com.model.CPF</converter-for-class>
+		<converter-class>com.converters.ConversorDeCPF</converter-class>
+	</converter>
+	<converter>
+		<converter-for-class>com.model.Telefone</converter-for-class>
+		<converter-class>com.converters.ConversorDeTelefone</converter-class>
+	</converter>
+	<managed-bean>
+		<managed-bean-name>funcionarioBean</managed-bean-name>
+		<managed-bean-class>com.managedbeans.FuncionarioBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<validator>
+		<validator-id>ValidaCPF</validator-id>
+		<validator-class>com.validators.ValidadorDeCPF</validator-class>
+	</validator>
+	<application>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+		</locale-config>
+	</application>
+</faces-config>

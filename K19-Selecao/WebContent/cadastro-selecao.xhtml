@@ -1,0 +1,27 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<fieldset>
+	<legend>Nova Seleção</legend>
+	<h:panelGrid columns="3">
+		<h:outputLabel value="País: " for="selecao-pais" />
+		<h:inputText id="selecao-pais" required="true"
+			value="#{selecaoBean.selecao.pais}">
+			<f:validateLength minimum="3" />
+		</h:inputText>
+		<h:message for="selecao-pais" styleClass="mensagem-erro" />
+		<h:outputLabel value="Técnico: " for="selecao-tecnico" />
+		<h:inputText id="selecao-tecnico" required="true"
+			value="#{selecaoBean.selecao.tecnico}">
+			<f:validateLength minimum="6" />
+		</h:inputText>
+		<h:message for="selecao-tecnico" styleClass="mensagem-erro" />
+		<h:commandButton value="Cadastrar" styleClass="botao-formulario">
+			<f:ajax event="click" execute="@form"
+				listener="#{selecaoBean.adiciona}" render="@form" />
+		</h:commandButton>
+	</h:panelGrid>
+</fieldset>
+</html>

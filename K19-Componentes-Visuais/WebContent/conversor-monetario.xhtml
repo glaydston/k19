@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>K19 - Treinamentos</title>
+	</h:head>
+   	<h:body>
+   		<h:form>
+   			<h:panelGrid columns="2">   				
+   				<h:outputLabel value="Valor: " for="valor" />
+   				<h:panelGroup>
+   					<h:inputText 
+   						id="valor" 
+   						label="Valor"
+   						required="true"
+   						value="#{conversorMonetarioBean.valor}">
+   						<f:validateDoubleRange minimum="2" maximum="10"/>
+   					</h:inputText>
+   					<h:message for="valor" style="color: red;"/>   				
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="De: " for="de"/>
+   				<h:panelGroup>
+   					<h:selectOneMenu id="de" value="#{conversorMonetarioBean.de}">
+   						<f:selectItems
+   							value="#{conversorMonetarioBean.taxa.keySet()}"
+   							var="moeda"
+   							itemValue="#{moeda}"
+   							itemLabel="#{moeda}"/>
+   						<f:validateRequired for="de"/>
+   					</h:selectOneMenu>
+   					<h:message for="de" style="color: red;"/>
+   				</h:panelGroup>
+   				
+   				<h:outputLabel value="Para: " for="para"/>
+   				<h:panelGroup>
+   					<h:selectOneMenu id="para" value="#{conversorMonetarioBean.para}">
+   						<f:selectItems
+   							value="#{conversorMonetarioBean.taxa.keySet()}"
+   							var="moeda"
+   							itemValue="#{moeda}"
+   							itemLabel="#{moeda}"/>
+   						<f:validateRequired for="para"/>
+   					</h:selectOneMenu>
+   					<h:message for="para" style="color: red;"/>
+   				</h:panelGroup>   				
+   				
+   				<h:commandButton value="Converter" action="#{conversorMonetarioBean.converte}" />
+   			</h:panelGrid>
+   		</h:form>
+   		
+   		Resultado: 	<h:outputText value="#{conversorMonetarioBean.resultado}">
+   						<f:convertNumber maxFractionDigits="2"/>
+   					</h:outputText>
+   	</h:body>   
+</html>

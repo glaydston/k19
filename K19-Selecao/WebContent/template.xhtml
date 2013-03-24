@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Copa do Mundo</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</h:head>
+<h:body>
+	<div id="header">
+		<h:outputLink styleClass="botao" value="selecoes.xhtml">Selecoes</h:outputLink>&nbsp;&nbsp;
+		<h:outputLink styleClass="botao" value="jogadores.xhtml">Jogadores</h:outputLink>
+		<h:form style="display: inline;">
+			<h:commandLink styleClass="botao" action="#{loginBean.sair}">Sair</h:commandLink>&nbsp;&nbsp;
+			<h:commandLink styleClass="botao" action="#{erroBean.erro}">Erro</h:commandLink>			
+		</h:form>		
+		<hr />
+	</div>
+	<ui:insert name="conteudo"> Espaço para o conteúdo da tela </ui:insert>
+	
+	<div id="footer" style="text-align: center">
+		<hr />
+		&copy; 2012 Glaydston. Todos os direitos reservados.
+	</div>
+</h:body>
+</html>
